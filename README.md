@@ -15,7 +15,7 @@
 	sudo apt-get install helm
 #### 6. Download the Ray Helm chart.
 #### 6. change directory run the following commands:
-	cd ray/deploy/charts
+	cd GCP_Kubernetes/ray-charts/ray
 #### 7. run the following commands:
 	helm -n ray install example-cluster --create-namespace ./ray
 #### 8. Start Ray Head:
