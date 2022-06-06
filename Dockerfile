@@ -1,5 +1,12 @@
 # Pull ray docker image
-FROM rayproject/ray:1.11.0-e2e-py39
+#FROM rayproject/ray:1.11.0-e2e-py39
+FROM rayproject/ray:1.12.0
+
+#
+WORKDIR /code
+
+#
+COPY ./requirements.txt /code/requirements.txt
 
 # Using root user
 USER root
@@ -18,3 +25,6 @@ RUN apt-get install libchromaprint-tools --assume-yes
 
 # Install ffmpeg
 RUN apt-get install -y ffmpeg
+
+# Install requirements
+RUN pip install -r /code/requirements.txt
