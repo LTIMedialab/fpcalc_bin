@@ -31,8 +31,6 @@ RUN pip install -r /code/requirements.txt
 
 RUN apt install unzip
 
-RUN pip install -r /code/pubsub_api/requirements.txt --use-feature=2020-resolver
-
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 
 RUN unzip awscliv2.zip
