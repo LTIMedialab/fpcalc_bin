@@ -6,7 +6,7 @@
 # It's recommended to build custom dependencies for your workload into this image,
 # taking one of the offical `rayproject/ray` images as base.
 #image: rayproject/ray:1.11.0-e2e-py39
-image: 864365278736.dkr.ecr.us-east-2.amazonaws.com/ray_deployment:build-8ba98df5-ab7f-42e2-9fd2-bb7765763902 # custom ray image
+image: 864365278736.dkr.ecr.us-east-2.amazonaws.com/ray_deployment:0.2 # custom ray image
 # headPodType is the podType used for the Ray head node (as configured below).
 headPodType: rayHeadType
 # podTypes is the list of pod configurations available for use as Ray nodes.

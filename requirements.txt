@@ -28,6 +28,6 @@ gsutil
 moviepy
 static-ffmpeg
 SoundFile
-boto3
+boto3==1.24.16
 pandas
 scikit-learn
