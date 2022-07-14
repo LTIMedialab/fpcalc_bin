@@ -6,7 +6,7 @@
 # It's recommended to build custom dependencies for your workload into this image,
 # taking one of the offical `rayproject/ray` images as base.
 #image: rayproject/ray:1.11.0-e2e-py39
-image: 864365278736.dkr.ecr.us-east-2.amazonaws.com/ray_deployment:0.2 # custom ray image
+image: 864365278736.dkr.ecr.us-east-2.amazonaws.com/ray_deployment-uat:0.1 # custom ray image
 # headPodType is the podType used for the Ray head node (as configured below).
 headPodType: rayHeadType
 # podTypes is the list of pod configurations available for use as Ray nodes.
@@ -30,7 +30,7 @@ podTypes:
         # See https://docs.ray.io/en/master/advanced.html#dynamic-remote-parameters for an example of usage of custom resources in a Ray task.
         rayResources: {}
         # Optionally, set a node selector for this podType: https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodeselector
-        nodeSelector: {eks.amazonaws.com/nodegroup: eks-nodes-group-ray}
+        nodeSelector: {eks.amazonaws.com/nodegroup: eks-nodes-group-ray-uat}
 
         # tolerations for Ray pods of this podType (the head's podType in this case)
         #   ref: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
@@ -63,7 +63,7 @@ podTypes:
         # See https://docs.ray.io/en/master/advanced.html#dynamic-remote-parameters for an example of usage of custom resources in a Ray task.
         rayResources: {}
         # Optionally, set a node selector for this Pod type. See https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodeselector
-        nodeSelector: {eks.amazonaws.com/nodegroup: eks-nodes-group-ray}
+        nodeSelector: {eks.amazonaws.com/nodegroup: eks-nodes-group-ray-uat}
 
         # tolerations for Ray pods of this podType
         #   ref: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
@@ -110,10 +110,10 @@ clusterOnly: false
 namespacedOperator: false
 # operatorNamepsace - If using a cluster-scoped operator (namespacedOperator: false), set the namespace
 # in which to launch the operator.
-operatorNamespace: default
+operatorNamespace: ray
 # operatorImage - The image used in the operator deployment.
 # It is recommended to use one of the official `rayproject/ray` images for the operator.
 # It is recommended to use the same Ray version in the operator as in the Ray clusters managed
 # by the operator. In other words, the images specified under the fields `operatorImage` and `image`
 # should carry matching Ray versions.
-operatorImage: 864365278736.dkr.ecr.us-east-2.amazonaws.com/ray_deployment:build-8ba98df5-ab7f-42e2-9fd2-bb7765763902
+operatorImage: 864365278736.dkr.ecr.us-east-2.amazonaws.com/ray_deployment-uat:0.1
